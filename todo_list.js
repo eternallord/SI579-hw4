@@ -38,11 +38,15 @@ var add_btn = document.querySelector("#add_task");
 var description = document.querySelector("#task_description_input");
 var date_element = document.querySelector("#duedate_input");
 var time_element = document.querySelector("#duetime_input");
+date_element.value = '';
+time_element.value = '';
+description.value = '';
 
 add_btn.addEventListener("click",function (){
     addTask(description.value, dateAndTimeToTimestamp(date_element, time_element));
     date_element.value = '';
     time_element.value = '';
+    description.value = '';
 });
 
 description.addEventListener("keydown", function(event){
@@ -50,5 +54,6 @@ description.addEventListener("keydown", function(event){
         addTask(description.value, dateAndTimeToTimestamp(date_element, time_element));
         date_element.value = '';
         time_element.value = '';
+        description.value = '';
     }
 });
